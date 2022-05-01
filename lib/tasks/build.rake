@@ -17,12 +17,15 @@ def dartsass_load_paths
 end
 
 def dartsass_compile_command
-   "#{EXEC_PATH} #{dartsass_build_options} #{dartsass_load_paths} #{dartsass_build_mapping}"
+  puts "DartSass is building ..."
+  puts "#{EXEC_PATH} #{dartsass_build_options} #{dartsass_load_paths} #{dartsass_build_mapping}"
+  "#{EXEC_PATH} #{dartsass_build_options} #{dartsass_load_paths} #{dartsass_build_mapping}"
 end
 
 namespace :dartsass do
   desc "Build your Dart Sass CSS"
   task build: :environment do
+    puts "[Build your Dart Sass CSS] is being invoked ..."
     system dartsass_compile_command
   end
 
